@@ -1,0 +1,142 @@
+ \\rwvpsf01\ClaritySP\in
+
+
+--------------------- 01/03/2018 --------------------------------------
+--> ResourceS, IdeaC, ServiceNow, 
+--> ADC Changes Fix
+--> SDLC Fix - InProgress.
+
+--------------------- 12/18/2017 --------------------------------------
+--> ResourceS, IdeaC, ServiceNow, 
+--> Rally Connector done
+--> ADC Changes
+--> SDLC Fix - InProgress.
+
+
+
+--------------------- 12/08/2017 ----------------------------------------
+
+Select Approved request, get message, click on Add Reviewer gives save message --> Done
+Update message, "This request is approved, please select In Review request" --> Done
+Select Approved request, get message, Request No is not cleared --> Done
+
+After getting any pop-up message, clicking on Add Reviewers does not work properly, form does not get loaded completely with roles --> Done.
+
+
+If approver name does not exist for a role stil getting message "Approver already added to request #" --> Done
+
+"<div  class='divpplpicker' id='PeoplePickerOther' title='Other'></div></label>";
+
+.title.indexOf("Other")
+
+
+
+//others
+        
+        if(i=rolesCount)
+        {
+
+      	var PeoplePickerForOtherRoles = SPClientPeoplePicker.SPClientPeoplePickerDict[peoplepickerdiveColl[i].title.indexOf("Other") + "_TopSpan"];
+
+        UserInfo = PeoplePickerForRoles.GetAllUserInfo();
+        var otherUserCount = UserInfo.length;
+        
+        
+        } 
+
+        
+        //others
+
+
+--------------------- 12/07/2017 ----------------------------------------
+--> Sanjay emails
+--> SDLC Custom formIssue
+--> Rsetup
+--> Service Now
+--> R- Locks
+--> support emails
+
+
+
+--------------------------------------------------------
+update this point --> 	activate the feature.. enable Workflow histroy list
+Workflows can use app permissions
+Allow workflows to read from and to write to all items in this site.
+
+check workflow histroy list
+
+DEV's unused code and un used list to be removed for sync....
+
+
+
+
+
+--------------------- 11/27/2017 ----------------------------------------
+--> Idea Conversation  d
+--> R S  d 
+--> SDLC on hold
+--> ADC --> admin guide updates with "SDLC URL access", and "Vendor selection rates". add newshore with rates
+--> ADC --> Check Idea check box.
+--> Service Now d 
+--> R Deactivation.  
+
+
+--------------------- 11/24/2017 ----------------------------------------
+--> Idea Conversation  1
+--> R S 
+--> SDLC on hold
+--> ADC --> admin guide updates with "SDLC URL access", and "Vendor selection rates". add newshore with rates
+--> ADC --> loading project dropdwon with Ideas done and changes names with INvestment ID 
+--> Service Now done
+--> R Deactivation.  
+
+--------------------- 11/21/2017 ----------------------------------------
+--> Idea Conversation 
+--> R S  done.
+--> SDLC on hold
+--> ADC --> admin guide updates with "SDLC URL access", and "Vendor selection rates".
+--> ADC --> loading project dropdwon with Ideas
+--> Service Now done
+--> R Deactivation.  done
+
+
+
+
+
+--------------------- 11/15/2017 ----------------------------------------
+
+Vendor reports, Time sheet, invalide trans.
+
+--> Service Now tickets 
+--> Resource setup 
+--> Clarity License Monitoring. 
+--> Idea Conversation if any check
+--> SDLC Design and analysis. done.
+--> ADC Improvemets --> Testing.
+
+
+--------------------- 11/14/2017 ----------------------------------------
+
+--> SDLC DeV sync for "Document Rule".
+--> Service Now tickets d
+--> Resource setup
+--> SDLC Design and analysis.
+
+--------------------- 11/06/2017 ----------------------------------------
+--> SDLC Run Compliance Test  
+	Need to add 8 to 10 project on SK, JK and AY names
+	Need to check the From and To date logic in the code
+	Need to check how this "run C C"  works in the code logic side.
+--> Regulr support work
+--> ADC code review and improvements
+--> Plan for all manual work automations.
+--> Add task to SDLC user story.
+--> Dot net windows Tools to monitor and support
+
+
+--------------------- 11/01/2017 ----------------------------------------
+
+--> Idea conver
+--> Ticket for VS issue
+--> Resource setups
+--> User guide updation for ADC.
