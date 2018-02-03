@@ -1,0 +1,195 @@
+using System;
+
+namespace CrossOver27Jan2018
+{
+    class Program
+    {
+        /*
+         * Complete the function below.
+         * DO NOT MODIFY CODE OUTSIDE THIS FUNCTION!
+         */
+        static string[] twins(string[] a, string[] b)
+        {
+
+            string[] results = new string[a.Length];
+            for (int i = 0; i < a.Length; i++)
+            {
+
+                if (a[i] == b[i])
+                {
+                   // Console.WriteLine("Yes");
+                    results[i] = "Yes";
+                    // Console.ReadLine();
+
+                }
+                else
+                {
+
+                    //Console.WriteLine("No");
+                    // results[i] = "No";
+                    // Console.ReadLine();
+                    results[i] = Swap(a[i], b[i]);
+
+                }
+            }
+            return results;
+           // return new string[] { "Yes", "No" };
+        }
+
+
+        static string Swap(string A, string B)
+        {
+            string result;
+            char[] array = A.ToCharArray(); // Get characters
+            char temp1 = array[0]; // Get temporary copy of character
+            array[0] = array[2]; // Assign element
+            array[2] = temp1; // Assign element
+            char temp2 = array[1]; // Get temporary copy of character
+            array[1] = array[3]; // Assign element
+            array[3] = temp2; // Assign element
+
+            string finalA = new string(array);
+            if (finalA == B)
+
+                result = "Yes";
+            else result = "No";
+
+            return result;
+
+            // return new string(array); // Return string
+            /*
+            string result;
+            char eventemp = 'n', oddtemp = 'n';
+            char tempa = 'n', tempb = 'n';
+            char[] a = A.ToCharArray();
+            for (int i = 0; i < a.Length; i++)
+            {
+                //even abcd, 0123, a, c
+                if (i % 2 == 0)
+                {
+                    int j=i;
+                    if (i > 0)
+                    { 
+
+                        //a[i] = eventemp;
+                        tempa = a[i]; //e=c
+                        a[j] = tempa;
+                       // tempa = eventemp;
+                       // a[i] = tempa;
+                       // eventemp = tempa;
+                        a[i] = eventemp; //c =a 
+
+
+
+                    }
+                    else { eventemp = a[i];
+                    j = i;
+                    
+                    } //a=a 
+
+                }
+                else if (i % 2 != 0)
+                {
+                    int k=i;
+                    if (i > 1)
+                    {
+                        tempb = a[i]; //e=c
+                        a[k] = tempb;
+                        a[i] = oddtemp;
+                    }
+                    else
+                    {
+                        oddtemp = a[i];
+                        k = i;
+                    }
+                }
+
+
+            }
+            string finalA = new string(a);
+            if (finalA == B)
+                result = "Yes";
+            else result = "No";
+
+            return result;
+             */
+        }
+
+        /*
+        static string swapChars(char[] charactersofA, char[] charactersofB)
+        {
+            char evenIndexValue = 'a';
+            char oddIndexValue = 'a';
+            string result;
+            for (int i = 0; i < charactersofA.Length; i++)
+            {
+                if (charactersofA[i] != charactersofB[i])
+                {
+                    if (i % 2 == 0)
+                    {
+                        if (i > 0)
+                        {
+                            charactersofA[i] = evenIndexValue;
+                        }
+                        else
+                        {
+                            evenIndexValue = charactersofA[i];
+                        }
+
+
+                    }
+                    else
+                    {
+                        if (i > 1)
+                        {
+
+                            charactersofA[i] = oddIndexValue;
+                        }
+                        else
+                        {
+                            oddIndexValue = charactersofA[i];
+                        }
+
+                    }
+                }
+            }
+                    return "";
+
+
+
+                } */
+        // DO NOT MODIFY CODE OUTSIDE THE ABOVE FUNCTION!
+
+        static void Main(String[] args)
+                {
+                    string[] res;
+
+                    int _a_size = 0;
+                    _a_size = Convert.ToInt32(Console.ReadLine());
+                    string[] _a = new string[_a_size];
+                    string _a_item;
+                    for (int _a_i = 0; _a_i < _a_size; _a_i++)
+                    {
+                        _a_item = Console.ReadLine();
+                        _a[_a_i] = _a_item;
+                    }
+
+
+                    int _b_size = 0;
+                    _b_size = Convert.ToInt32(Console.ReadLine());
+                    string[] _b = new string[_b_size];
+                    string _b_item;
+                    for (int _b_i = 0; _b_i < _b_size; _b_i++)
+                    {
+                        _b_item = Console.ReadLine();
+                        _b[_b_i] = _b_item;
+                    }
+
+                    res = twins(_a, _b);
+                    for (int res_i = 0; res_i < res.Length; res_i++)
+                    {
+                        Console.WriteLine(res[res_i]);
+                    }
+                }
+            }
+        }
