@@ -1,0 +1,151 @@
+//Binary digits comparision
+using System;
+
+namespace BinaryNumberSorting
+{
+    class Program
+    {
+        /*
+         * Complete the function below.
+         * DO NOT MODIFY CODE OUTSIDE THIS FUNCTION!
+         */
+        static int[] rearrange(int[] elements)
+        {
+            int[] test = new int[elements.Length];
+            int[,] results = new int[elements.Length,2];
+            int[] res = new int[2];
+            int element;
+            for(int _element_i=0;_element_i<elements.Length;_element_i++)
+            {
+                element = elements[_element_i];
+                res = convertToBinary(element);
+                for(int j=0;j<2;j++)
+                {
+                    results[_element_i, j] = res[j];
+
+                }
+                // results[_element_i,1] = convertToBinary(element);
+                
+
+            }
+            results = SortArray(results);
+            for(int k=0;k<results.Length/2;k++)
+            {
+                test[k] =  results[k, 0];
+            }
+
+            return  test;
+
+        }
+
+        public static int[,] SortArray(int[,] array)
+        {
+            int length = array.Length/2;
+
+            int temp = array[0,0];
+            int temp2 = array[0, 1];
+
+            for (int i = 0; i < length; i++)
+            {
+                for (int j = i + 1; j < length; j++)
+                {
+                    if (array[i,1] > array[j,1])
+                    {
+                        temp = array[i,1];
+                        temp2 = array[i, 0];
+
+                        array[i,1] = array[j,1];
+                        array[i, 0] = array[j, 0];
+
+                        array[j,1] = temp;
+                        array[j, 0] = temp2;
+                    }
+                    if(array[i,1]==array[j,1])
+                    {
+                         if(array[i,0]>array[j,0])
+                        {
+                            temp = array[i, 1];
+                            temp2 = array[i, 0];
+
+                            array[i, 1] = array[j, 1];
+                            array[i, 0] = array[j, 0];
+
+                            array[j, 1] = temp;
+                            array[j, 0] = temp2;
+
+                        }
+
+                    }
+                }
+            }
+
+            return array;
+        }
+
+        static int[] convertToBinary(int element)
+        {
+            int actualNumber = element;
+            //int binaryNumber=0;
+           // int num;
+           // Console.Write("Enter a Number : ");
+           // num = int.Parse(Console.ReadLine());
+            int quot;
+            int[] number = new int[2];
+            string rem = "";
+            while (element >= 1)
+            {
+                quot = element / 2;
+                rem += (element % 2).ToString();
+                element = quot;
+            }
+            string bin = "";
+            int noOfOnes=0;
+            char[] splitBinary;
+            for (int i = rem.Length - 1; i >= 0; i--)
+            {
+                bin = bin + rem[i];
+                
+                //countOfOnes= bin.Cou
+            }
+            splitBinary = bin.ToCharArray();
+            int intConversion;
+            for (int j = 0; j < splitBinary.Length; j++)
+            {
+                intConversion = (int)Char.GetNumericValue(splitBinary[j]);
+
+                if (intConversion == 1)
+                    noOfOnes = noOfOnes + 1;
+
+            }
+
+            number[0] = actualNumber;
+            number[1] = noOfOnes;
+
+
+            return number;
+        }
+
+        // DO NOT MODIFY CODE OUTSIDE THE ABOVE FUNCTION!
+
+        static void Main(String[] args)
+        {
+            int[] res;
+
+            int _elements_size = 0;
+            _elements_size = Convert.ToInt32(Console.ReadLine());
+            int[] _elements = new int[_elements_size];
+            int _elements_item;
+            for (int _elements_i = 0; _elements_i < _elements_size; _elements_i++)
+            {
+                _elements_item = Convert.ToInt32(Console.ReadLine());
+                _elements[_elements_i] = _elements_item;
+            }
+
+            res = rearrange(_elements);
+            for (int res_i = 0; res_i < res.Length; res_i++)
+            {
+                Console.WriteLine(res[res_i]);
+            }
+        }
+    }
+}
