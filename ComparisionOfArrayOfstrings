@@ -12,26 +12,41 @@ namespace CrossOver27Jan2018
         {
 
             string[] results = new string[a.Length];
-            for (int i = 0; i < a.Length; i++)
-            {
+            int j=0;
+             
 
-                if (a[i] == b[i])
+                for (int i = 0; i < a.Length; i++)
                 {
-                   // Console.WriteLine("Yes");
-                    results[i] = "Yes";
-                    // Console.ReadLine();
-
+                if (a[i].Length != b[i].Length)
+                {
+                    results[j] = "No";
                 }
                 else
                 {
 
-                    //Console.WriteLine("No");
-                    // results[i] = "No";
-                    // Console.ReadLine();
-                    results[i] = Swap(a[i], b[i]);
 
+
+                    if (a[i] == b[i])
+                        {
+                        
+                            // Console.WriteLine("Yes");
+                            results[j] = "Yes";
+                            // Console.ReadLine();
+
+                        }
+                        else
+                        {
+
+                            //Console.WriteLine("No");
+                            // results[i] = "No";
+                            // Console.ReadLine();
+                            results[j] = Swap(a[i], b[i]);
+
+                        }
                 }
+
             }
+          
             return results;
            // return new string[] { "Yes", "No" };
         }
