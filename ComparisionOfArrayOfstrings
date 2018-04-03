@@ -1,210 +1,171 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections.Specialized;
 
-namespace CrossOver27Jan2018
+namespace Sample1
 {
     class Program
     {
-        /*
-         * Complete the function below.
-         * DO NOT MODIFY CODE OUTSIDE THIS FUNCTION!
-         */
-        static string[] twins(string[] a, string[] b)
+        static void Main(string[] args)
+        {
+            string[] res;
+
+            int _a_size = 0;
+            _a_size = Convert.ToInt32(Console.ReadLine());
+            string[] _a = new string[_a_size];
+            string _a_item;
+            for (int _a_i = 0; _a_i < _a_size; _a_i++)
+            {
+                _a_item = Console.ReadLine();
+                _a[_a_i] = _a_item;
+            }
+
+
+            int _b_size = 0;
+            _b_size = Convert.ToInt32(Console.ReadLine());
+            string[] _b = new string[_b_size];
+            string _b_item;
+            for (int _b_i = 0; _b_i < _b_size; _b_i++)
+            {
+                _b_item = Console.ReadLine();
+                _b[_b_i] = _b_item;
+            }
+
+            res = twins(_a, _b);
+            for (int res_i = 0; res_i < res.Length; res_i++)
+            {
+                Console.WriteLine(res[res_i]);
+            }
+
+
+            /*  int sizeA = 0, sizeB = 0;
+              string tempA, tempB;
+              Console.WriteLine("For Array A Size and values");
+
+
+              if (sizeA < 1000)
+              {
+                  sizeA = Convert.ToInt32(Console.ReadLine());
+                  string[] A = new string[sizeA];
+                  for (int i = 0; i < sizeA; i++)
+                  {
+                      tempA = Console.ReadLine();
+                      if (tempA.Length < 100)
+                      {
+                          A[i] = tempA;
+                      }
+
+                  }
+                  Console.WriteLine("For Array B Size and values");
+                  if (sizeB < 1000)
+                  {
+                      sizeB = Convert.ToInt32(Console.ReadLine());
+
+                      string[] B = new string[sizeB];
+                      for (int i = 0; i < sizeB; i++)
+                      {
+                          tempB = Console.ReadLine();
+                          if (tempB.Length < 100)
+                          {
+                              B[i] = tempB;
+                          }
+                      }
+                      string[] finalResulsts = CompareArrays(A, B, sizeA, sizeB);
+                      /*   for (int r = 0; r < finalResulsts.Length; r++)
+                         {
+                             Console.WriteLine("\n" + finalResulsts[r]);
+
+                         }
+                         Console.ReadLine(); 
+
+                  }
+                  else
+                      Console.WriteLine("Enter the size less than 1000 for an array B");
+
+              }
+              else
+                  Console.WriteLine("Enter the size less than 1000 for an array A");
+
+      */
+
+
+
+
+        }
+
+        static string[] twins(string[] A, string[] B)
         {
 
-            string[] results = new string[a.Length];
-            int j=0;
-             
+            string[] results = new string[A.Length];
+            for (int i = 0; i < A.Length; i++)
+            {
+                if (A[i].Length == B[i].Length)
+                {
 
-                for (int i = 0; i < a.Length; i++)
-                {
-                if (a[i].Length != b[i].Length)
-                {
-                    results[j] = "No";
+                    if (A[i] == B[i])
+                    {
+                        
+                        results[i] = "Yes";
+                        
+
+                    }
+                    else
+                    {
+                        results[i] = Swap(A[i], B[i]);
+
+                    }
                 }
                 else
                 {
-
-
-
-                    if (a[i] == b[i])
-                        {
-                        
-                            // Console.WriteLine("Yes");
-                            results[j] = "Yes";
-                            // Console.ReadLine();
-
-                        }
-                        else
-                        {
-
-                            //Console.WriteLine("No");
-                            // results[i] = "No";
-                            // Console.ReadLine();
-                            results[j] = Swap(a[i], b[i]);
-
-                        }
+                    // Console.WriteLine("No");
+                    results[i] = "No";
                 }
-
             }
-          
             return results;
-           // return new string[] { "Yes", "No" };
+
         }
-
-
         static string Swap(string A, string B)
         {
             string result;
-            char[] array = A.ToCharArray(); // Get characters
-            char temp1 = array[0]; // Get temporary copy of character
-            array[0] = array[2]; // Assign element
-            array[2] = temp1; // Assign element
-            char temp2 = array[1]; // Get temporary copy of character
-            array[1] = array[3]; // Assign element
-            array[3] = temp2; // Assign element
+            char[] arrayA = A.ToCharArray(); // Get characters
+            char[] arrayB = B.ToCharArray();
+            char temp1;
 
-            string finalA = new string(array);
+
+            for (int i = 0; i < arrayA.Length; i++)
+            {
+                if ((i + 2) <= arrayA.Length)
+                {
+                    if (arrayA[i] != arrayB[i])
+                    {
+
+                        temp1 = arrayA[i];
+                        arrayA[i] = arrayA[i + 2];
+                        arrayA[i + 2] = temp1;
+                    }
+
+                }
+
+
+            }
+
+            string finalA = new string(arrayA);
             if (finalA == B)
+            {
 
                 result = "Yes";
-            else result = "No";
+            }
+
+            else
+            {
+                result = "No";
+            }
 
             return result;
 
-            // return new string(array); // Return string
-            /*
-            string result;
-            char eventemp = 'n', oddtemp = 'n';
-            char tempa = 'n', tempb = 'n';
-            char[] a = A.ToCharArray();
-            for (int i = 0; i < a.Length; i++)
-            {
-                //even abcd, 0123, a, c
-                if (i % 2 == 0)
-                {
-                    int j=i;
-                    if (i > 0)
-                    { 
-
-                        //a[i] = eventemp;
-                        tempa = a[i]; //e=c
-                        a[j] = tempa;
-                       // tempa = eventemp;
-                       // a[i] = tempa;
-                       // eventemp = tempa;
-                        a[i] = eventemp; //c =a 
-
-
-
-                    }
-                    else { eventemp = a[i];
-                    j = i;
-                    
-                    } //a=a 
-
-                }
-                else if (i % 2 != 0)
-                {
-                    int k=i;
-                    if (i > 1)
-                    {
-                        tempb = a[i]; //e=c
-                        a[k] = tempb;
-                        a[i] = oddtemp;
-                    }
-                    else
-                    {
-                        oddtemp = a[i];
-                        k = i;
-                    }
-                }
-
-
-            }
-            string finalA = new string(a);
-            if (finalA == B)
-                result = "Yes";
-            else result = "No";
-
-            return result;
-             */
         }
-
-        /*
-        static string swapChars(char[] charactersofA, char[] charactersofB)
-        {
-            char evenIndexValue = 'a';
-            char oddIndexValue = 'a';
-            string result;
-            for (int i = 0; i < charactersofA.Length; i++)
-            {
-                if (charactersofA[i] != charactersofB[i])
-                {
-                    if (i % 2 == 0)
-                    {
-                        if (i > 0)
-                        {
-                            charactersofA[i] = evenIndexValue;
-                        }
-                        else
-                        {
-                            evenIndexValue = charactersofA[i];
-                        }
-
-
-                    }
-                    else
-                    {
-                        if (i > 1)
-                        {
-
-                            charactersofA[i] = oddIndexValue;
-                        }
-                        else
-                        {
-                            oddIndexValue = charactersofA[i];
-                        }
-
-                    }
-                }
-            }
-                    return "";
-
-
-
-                } */
-        // DO NOT MODIFY CODE OUTSIDE THE ABOVE FUNCTION!
-
-        static void Main(String[] args)
-                {
-                    string[] res;
-
-                    int _a_size = 0;
-                    _a_size = Convert.ToInt32(Console.ReadLine());
-                    string[] _a = new string[_a_size];
-                    string _a_item;
-                    for (int _a_i = 0; _a_i < _a_size; _a_i++)
-                    {
-                        _a_item = Console.ReadLine();
-                        _a[_a_i] = _a_item;
-                    }
-
-
-                    int _b_size = 0;
-                    _b_size = Convert.ToInt32(Console.ReadLine());
-                    string[] _b = new string[_b_size];
-                    string _b_item;
-                    for (int _b_i = 0; _b_i < _b_size; _b_i++)
-                    {
-                        _b_item = Console.ReadLine();
-                        _b[_b_i] = _b_item;
-                    }
-
-                    res = twins(_a, _b);
-                    for (int res_i = 0; res_i < res.Length; res_i++)
-                    {
-                        Console.WriteLine(res[res_i]);
-                    }
-                }
-            }
-        }
+    }
+}
